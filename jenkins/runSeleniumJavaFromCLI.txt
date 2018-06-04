@@ -1,0 +1,7 @@
+C:\PathToExe\NameConvert\SharedLocatorMap>java -cp c:\PathToExe\NameCo
+nvert\.;*  NewTestRunner
+
+
+C:\PathToExe\NameConvert\SharedLocatorMap>javac -cp c:\pathtoexe\NameC
+onvert\.;* Sprint001.java CreateApps.java AsyncHelper.java NewTestRunner.
+java

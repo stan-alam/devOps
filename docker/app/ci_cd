@@ -1,0 +1,20 @@
+node{
+   stage('git checkout'){
+       git credentialsId: 'git-creds', url: 'https://github.com/stan-alam/**'
+   }
+   stage('build image'){
+     sh 'docker build -t stanA/app:1.0.0 .'
+   }
+   stage('push docker image'){
+     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+        sh "docker login -u stanA -p ${dockerHubPwd}"
+     }
+     sh 'docker push stanA/app:1.0.0'
+   }
+   stage('run container on appserver'){
+     def dockerRun = 'docker run -p 8080:8080 -d --name my-app stanA/app:1.0.0'
+     sshagent(['app-server']) {
+       sh "ssh -o StrictHostKeyChecking=no ec2-user@*app_server_IP* ${dockerRun}"
+     }
+   }
+}

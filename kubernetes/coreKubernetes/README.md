@@ -9,3 +9,13 @@ Kubernetes security
 Different ways of creating a Kubernetes cluster
 Configuring Kubernetes to use a GPU
 ```
+
+Kubernetes base components
+
+Storage and the Container Storage Interface
+
+Kubernetes security
+
+Different ways of creating a Kubernetes cluster
+
+Details about the control plane, networking, and other core components
